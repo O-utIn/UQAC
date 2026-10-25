@@ -30,9 +30,11 @@ pip install -r requirements-4090.txt
 bash reproduction/run_full_reproduction.sh
 ```
 
-The scripts use `/root/autodl-tmp/UQAC` as the server checkout path. Change
-`ROOT` in the reproduction scripts if the repository is placed elsewhere.
-Completed artifacts are detected and skipped, so the launcher is resumable.
+The scripts preserve `/root/autodl-tmp/UQAC` and `/root/autodl-tmp/models` as
+the paths used on the experiment server. Replace those hard-coded paths when
+running elsewhere. Completed artifacts are detected and skipped, so the
+launcher is resumable. `run_full_reproduction.sh` is the final MATH/BBH batch
+and all-artifact verifier; the GSM8K stage uses `run_gsm8k_model.sh`.
 
 ## RTX 4090 compatibility changes
 
