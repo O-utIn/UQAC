@@ -23,6 +23,34 @@
 | 硬件 | 单张 NVIDIA RTX 4090 24 GB |
 | 结果文件 | 81 个指标 CSV、27 个论文格式 LaTeX 表 |
 
+## 论文环境与复现配置对比
+
+论文设置取自正文第 5 节及附录 C.1-C.3；复现设置以本仓库最终运行脚本和
+`requirements-4090.txt` 为准。`未披露` 表示论文没有提供足够信息，不能将其
+误判为一致。已知差异及其可能影响如下。
+
+| 配置项 | 论文原文 | 本次复现 | 结论 | 说明 |
+|---|---|---|---|---|
+| GPU | 1 × NVIDIA A100-SXM4 80 GB | 1 × NVIDIA RTX 4090 24 GB | **不同** | 主要影响显存容量、运行时间与底层算子；这是 4090 适配的根本原因。 |
+| 数值精度 | BF16 | BF16，明确关闭 4-bit 量化 | **精度一致** | 论文未单独说明是否量化；复现未使用量化，避免额外精度损失。 |
+| 模型与数据集 | 9 个模型；GSM8K、MATH、BBH 测试集 | 相同 9 个模型与测试集 | **一致** | 27 个数据集/模型组合全部完成。 |
+| Prompt | GSM8K/MATH zero-shot；Gemma 强制 `\boxed{}`；BBH 3-shot 并强制 `\boxed{}` | 沿用上游数据处理及 Prompt | **一致** | 未针对复现结果重新调 Prompt。 |
+| 常规答案生成 | temperature = 0，top-p = 1 | temperature = 0；vLLM 默认 top-p = 1 | **一致** | 确定性生成。 |
+| Self-Consistency | 5 个独立样本，temperature = 0.5；seeds 0-4 | 5 个样本，temperature = 0.5；seeds 0-4 | **一致** | 上游公开脚本写的是 0.3；最终复现已按论文改为 0.5，早期 0.3 结果未计入本表。 |
+| UQAC 超参数 | $C=10$，$K=16$，$L_{tgt}=3$，$\theta=0.5$，达到 5 个 chain token 后应用阈值，$L'_{attn}=10$ | 相同设置 | **一致** | 使用统一超参数，没有针对 4090 重新调参。 |
+| 论文所称最大序列长度 | GSM8K/MATH 1,024；BBH 1,536；DeepSeek-R1 额外 +512 | 生成阶段 model context 通常为 2,048；MATH/BBH 的 UQ 阶段分别使用 1,024/1,536；DeepSeek 的 MATH/BBH 再 +512 | **部分一致** | 复现将 model context 与生成上限拆开，以容纳 VU 追加 Prompt；因此 context/filter 行为并非完全相同。 |
+| GSM8K 的 DeepSeek 生成上限 | 按论文描述应在 1,024 基础上额外 +512 | `max_new_tokens=1024`，未单独 +512；model context 为 2,048 | **不同** | 可能截断更长的 deep-thinking 回答，是 GSM8K DeepSeek 与论文结果差异的潜在来源。 |
+| MATH/BBH 的 DeepSeek 生成上限 | 分别为 1,536 / 2,048 | 分别为 1,536 / 2,048 | **一致** | 按论文要求增加 512 tokens。 |
+| 评估抽样 | 正误样本平衡；每类最多 500；重复 5 次，seeds 0-4 | 相同 | **一致** | README 指标中的标准差来自这 5 次抽样。 |
+| ECE | 20 个等宽 bins | 20 个等宽 bins | **一致** | AUROC 与 ECE 计算口径不变。 |
+| 显存管理 | 80 GB A100；未描述 CPU offload | 大模型 UQ 设置 12 GiB GPU 上限；DeepSeek 的 MATH/BBH 设置 8 GiB，并将 attention 输出移至 CPU | **不同** | 用于避免 24 GB 显存溢出；保持 BF16 数值，但设备迁移和算子实现可能带来极小数值差异。 |
+| Attention 处理与恢复 | 未描述分块或断点恢复 | CPU stacking、分块 entropy、逐实例 HDF5 保存与断点恢复 | **实现不同** | 不修改指标定义，主要改变峰值显存、I/O 和运行可靠性。 |
+| 软件版本 | 论文未披露 | Python 3.12 兼容层；PyTorch 2.4.0、Transformers 4.46.0、vLLM 0.6.3.post1 等 | **无法比较** | 完整版本固定在 `requirements-4090.txt`；软件栈差异可能影响生成结果。 |
+
+因此，本次属于**相同模型、数据、核心算法超参数与评估口径下的硬件受限复现**，
+不是论文 A100 环境的逐位等价重放。解释下方指标差异时，应优先考虑 GPU/软件栈、
+序列长度处理及 4090 显存适配带来的影响。
+
 ## 论文 Table 1 与复现结果对比
 
 下表中的论文值来自原文 Table 1，复现值由仓库内 9 个模型的指标按论文脚本
