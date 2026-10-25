@@ -1,0 +1,33 @@
+\begin{table}[ht]
+    \centering
+    \caption{DeepSeek-R1-Distill-Llama-8B results on the GSM8k dataset.}
+    \label{tabapp:result-details-gsm8k-deepseek-r1-distill-llama-8b}
+    \begin{tabular}{llcc}
+    \toprule
+    & & AUROC & ECE \\ 
+    \midrule
+    \multirow{4}{*}{Token Probability}
+    & $\widebar{P}_{\gM}(\xans)$ & \num{69.57} $\pm$ \num{0.39} & \num{47.57} $\pm$ \num{0.06} \\ 
+    & $\widebar{P}_{\gM}(\xresp)$ & \num{62.01} $\pm$ \num{0.44} & \num{40.33} $\pm$ \num{0.01} \\ 
+    & $P_{\gM}(\xans|\xcot, \xinstr)$ & \num{70.38} $\pm$ \num{0.37} & \num{42.16} $\pm$ \num{0.06} \\ 
+    & $P_{\gM}(\xresp|\xinstr)$ & \num{63.50} $\pm$ \num{0.67} & \num{50.00} $\pm$ \num{0.00} \\ 
+    \midrule
+    \multirow{4}{*}{Token Entropy}
+    & $\widebar{\gH}$ & \num{62.09} $\pm$ \num{0.40} & \num{27.59} $\pm$ \num{0.01} \\ 
+    & $\widebar{\gH}(\xans)$ & \num{70.30} $\pm$ \num{0.40} & \num{44.54} $\pm$ \num{0.09} \\ 
+    & $\gH$ & \num{64.87} $\pm$ \num{0.62} & - \\ 
+    & $\gH(\xans)$ & \num{71.64} $\pm$ \num{0.38} & - \\ 
+    \midrule
+    \multirow{2}{*}{Multi-Round Prompting}
+    & Verbalized Uncertainty & \num{46.76} $\pm$ \num{0.82} & \num{39.47} $\pm$ \num{0.51} \\ 
+    & Self-Consistency & \num{81.26} $\pm$ \num{0.94} & \num{7.75} $\pm$ \num{0.57} \\ 
+    \midrule
+    \multirow{5}{*}{\ours}
+    & $\widebar{P}_{\gM, \text{attn}}$ & \num{62.05} $\pm$ \num{0.37} & \num{40.88} $\pm$ \num{0.04} \\ 
+    & $\widebar{P}_{\gM, \text{sim}}$ & \num{67.58} $\pm$ \num{0.40} & \num{45.68} $\pm$ \num{0.04} \\ 
+    & $\widetilde{P}_{\gM, \text{attn}}$ & \num{61.63} $\pm$ \num{0.43} & \num{43.78} $\pm$ \num{0.37} \\ 
+    & $\widetilde{P}_{\gM, \text{sim}}$ & \num{69.50} $\pm$ \num{0.42} & \num{18.54} $\pm$ \num{0.32} \\ 
+    & $\widetilde{P}_{\gM}$ & \num{71.60} $\pm$ \num{0.62} & \num{24.56} $\pm$ \num{0.24} \\ 
+    \bottomrule
+    \end{tabular}
+\end{table}

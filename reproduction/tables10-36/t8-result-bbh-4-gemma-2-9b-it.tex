@@ -1,0 +1,33 @@
+\begin{table}[ht]
+    \centering
+    \caption{gemma-2-9b-it results on the BBH dataset.}
+    \label{tabapp:result-details-bbh-gemma-2-9b-it}
+    \begin{tabular}{llcc}
+    \toprule
+    & & AUROC & ECE \\ 
+    \midrule
+    \multirow{4}{*}{Token Probability}
+    & $\widebar{P}_{\gM}(\xans)$ & \num{69.33} $\pm$ \num{0.68} & \num{45.41} $\pm$ \num{0.23} \\ 
+    & $\widebar{P}_{\gM}(\xresp)$ & \num{57.93} $\pm$ \num{1.03} & \num{42.82} $\pm$ \num{0.19} \\ 
+    & $P_{\gM}(\xans|\xcot, \xinstr)$ & \num{69.79} $\pm$ \num{0.72} & \num{38.07} $\pm$ \num{0.36} \\ 
+    & $P_{\gM}(\xresp|\xinstr)$ & \num{71.56} $\pm$ \num{1.12} & \num{49.67} $\pm$ \num{0.08} \\ 
+    \midrule
+    \multirow{4}{*}{Token Entropy}
+    & $\widebar{\gH}$ & \num{57.39} $\pm$ \num{1.03} & \num{35.80} $\pm$ \num{0.50} \\ 
+    & $\widebar{\gH}(\xans)$ & \num{69.81} $\pm$ \num{0.39} & \num{42.09} $\pm$ \num{0.24} \\ 
+    & $\gH$ & \num{65.81} $\pm$ \num{0.99} & - \\ 
+    & $\gH(\xans)$ & \num{71.50} $\pm$ \num{0.11} & - \\ 
+    \midrule
+    \multirow{2}{*}{Multi-Round Prompting}
+    & Verbalized Uncertainty & \num{60.52} $\pm$ \num{1.22} & \num{45.45} $\pm$ \num{0.15} \\ 
+    & Self-Consistency & \num{87.06} $\pm$ \num{0.69} & \num{20.56} $\pm$ \num{0.40} \\ 
+    \midrule
+    \multirow{5}{*}{\ours}
+    & $\widebar{P}_{\gM, \text{attn}}$ & \num{68.03} $\pm$ \num{0.85} & \num{44.47} $\pm$ \num{0.23} \\ 
+    & $\widebar{P}_{\gM, \text{sim}}$ & \num{68.73} $\pm$ \num{1.09} & \num{44.78} $\pm$ \num{0.21} \\ 
+    & $\widetilde{P}_{\gM, \text{attn}}$ & \num{71.73} $\pm$ \num{0.73} & \num{22.95} $\pm$ \num{0.70} \\ 
+    & $\widetilde{P}_{\gM, \text{sim}}$ & \num{70.44} $\pm$ \num{1.04} & \num{23.13} $\pm$ \num{0.94} \\ 
+    & $\widetilde{P}_{\gM}$ & \num{70.80} $\pm$ \num{1.09} & \num{23.42} $\pm$ \num{0.54} \\ 
+    \bottomrule
+    \end{tabular}
+\end{table}

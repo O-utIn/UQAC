@@ -1,0 +1,33 @@
+\begin{table}[ht]
+    \centering
+    \caption{gemma-2-9b-it results on the GSM8k dataset.}
+    \label{tabapp:result-details-gsm8k-gemma-2-9b-it}
+    \begin{tabular}{llcc}
+    \toprule
+    & & AUROC & ECE \\ 
+    \midrule
+    \multirow{4}{*}{Token Probability}
+    & $\widebar{P}_{\gM}(\xans)$ & \num{51.08} $\pm$ \num{0.13} & \num{49.89} $\pm$ \num{0.01} \\ 
+    & $\widebar{P}_{\gM}(\xresp)$ & \num{56.62} $\pm$ \num{1.41} & \num{45.56} $\pm$ \num{0.04} \\ 
+    & $P_{\gM}(\xans|\xcot, \xinstr)$ & \num{51.08} $\pm$ \num{0.13} & \num{49.91} $\pm$ \num{0.06} \\ 
+    & $P_{\gM}(\xresp|\xinstr)$ & \num{60.71} $\pm$ \num{1.11} & \num{50.00} $\pm$ \num{0.00} \\ 
+    \midrule
+    \multirow{4}{*}{Token Entropy}
+    & $\widebar{\gH}$ & \num{60.17} $\pm$ \num{1.51} & \num{41.72} $\pm$ \num{0.08} \\ 
+    & $\widebar{\gH}(\xans)$ & \num{40.90} $\pm$ \num{0.87} & \num{49.83} $\pm$ \num{0.02} \\ 
+    & $\gH$ & \num{64.63} $\pm$ \num{1.07} & - \\ 
+    & $\gH(\xans)$ & \num{40.70} $\pm$ \num{0.87} & - \\ 
+    \midrule
+    \multirow{2}{*}{Multi-Round Prompting}
+    & Verbalized Uncertainty & \num{51.59} $\pm$ \num{0.08} & \num{49.63} $\pm$ \num{0.01} \\ 
+    & Self-Consistency & \num{53.94} $\pm$ \num{0.62} & \num{26.13} $\pm$ \num{1.15} \\ 
+    \midrule
+    \multirow{5}{*}{\ours}
+    & $\widebar{P}_{\gM, \text{attn}}$ & \num{57.07} $\pm$ \num{0.93} & \num{46.83} $\pm$ \num{0.04} \\ 
+    & $\widebar{P}_{\gM, \text{sim}}$ & \num{66.62} $\pm$ \num{1.09} & \num{48.53} $\pm$ \num{0.05} \\ 
+    & $\widetilde{P}_{\gM, \text{attn}}$ & \num{57.90} $\pm$ \num{0.61} & \num{25.17} $\pm$ \num{0.60} \\ 
+    & $\widetilde{P}_{\gM, \text{sim}}$ & \num{66.33} $\pm$ \num{1.11} & \num{36.55} $\pm$ \num{0.29} \\ 
+    & $\widetilde{P}_{\gM}$ & \num{64.55} $\pm$ \num{1.12} & \num{43.90} $\pm$ \num{0.20} \\ 
+    \bottomrule
+    \end{tabular}
+\end{table}

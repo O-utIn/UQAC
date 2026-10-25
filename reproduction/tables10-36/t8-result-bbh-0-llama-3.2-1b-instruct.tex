@@ -1,0 +1,33 @@
+\begin{table}[ht]
+    \centering
+    \caption{Llama-3.2-1B-Instruct results on the BBH dataset.}
+    \label{tabapp:result-details-bbh-llama-3.2-1b-instruct}
+    \begin{tabular}{llcc}
+    \toprule
+    & & AUROC & ECE \\ 
+    \midrule
+    \multirow{4}{*}{Token Probability}
+    & $\widebar{P}_{\gM}(\xans)$ & \num{53.80} $\pm$ \num{1.12} & \num{36.98} $\pm$ \num{0.60} \\ 
+    & $\widebar{P}_{\gM}(\xresp)$ & \num{55.16} $\pm$ \num{2.03} & \num{40.47} $\pm$ \num{0.07} \\ 
+    & $P_{\gM}(\xans|\xcot, \xinstr)$ & \num{56.81} $\pm$ \num{0.95} & \num{27.13} $\pm$ \num{1.21} \\ 
+    & $P_{\gM}(\xresp|\xinstr)$ & \num{56.43} $\pm$ \num{1.00} & \num{30.46} $\pm$ \num{1.09} \\ 
+    \midrule
+    \multirow{4}{*}{Token Entropy}
+    & $\widebar{\gH}$ & \num{57.46} $\pm$ \num{1.82} & \num{31.99} $\pm$ \num{0.43} \\ 
+    & $\widebar{\gH}(\xans)$ & \num{53.76} $\pm$ \num{0.99} & \num{29.44} $\pm$ \num{1.08} \\ 
+    & $\gH$ & \num{57.82} $\pm$ \num{0.89} & - \\ 
+    & $\gH(\xans)$ & \num{59.21} $\pm$ \num{0.57} & - \\ 
+    \midrule
+    \multirow{2}{*}{Multi-Round Prompting}
+    & Verbalized Uncertainty & \num{78.40} $\pm$ \num{5.85} & \num{25.00} $\pm$ \num{3.63} \\ 
+    & Self-Consistency & \num{80.41} $\pm$ \num{0.39} & \num{10.03} $\pm$ \num{0.90} \\ 
+    \midrule
+    \multirow{5}{*}{\ours}
+    & $\widebar{P}_{\gM, \text{attn}}$ & \num{54.48} $\pm$ \num{1.17} & \num{36.22} $\pm$ \num{0.23} \\ 
+    & $\widebar{P}_{\gM, \text{sim}}$ & \num{54.45} $\pm$ \num{1.06} & \num{36.62} $\pm$ \num{0.23} \\ 
+    & $\widetilde{P}_{\gM, \text{attn}}$ & \num{58.98} $\pm$ \num{1.13} & \num{24.39} $\pm$ \num{1.03} \\ 
+    & $\widetilde{P}_{\gM, \text{sim}}$ & \num{58.35} $\pm$ \num{1.36} & \num{21.55} $\pm$ \num{1.03} \\ 
+    & $\widetilde{P}_{\gM}$ & \num{57.14} $\pm$ \num{1.77} & \num{21.95} $\pm$ \num{1.45} \\ 
+    \bottomrule
+    \end{tabular}
+\end{table}

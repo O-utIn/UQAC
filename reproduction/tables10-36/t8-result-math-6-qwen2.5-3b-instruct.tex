@@ -1,0 +1,33 @@
+\begin{table}[ht]
+    \centering
+    \caption{Qwen2.5-3B-Instruct results on the MATH dataset.}
+    \label{tabapp:result-details-math-qwen2.5-3b-instruct}
+    \begin{tabular}{llcc}
+    \toprule
+    & & AUROC & ECE \\ 
+    \midrule
+    \multirow{4}{*}{Token Probability}
+    & $\widebar{P}_{\gM}(\xans)$ & \num{63.22} $\pm$ \num{0.45} & \num{49.31} $\pm$ \num{0.06} \\ 
+    & $\widebar{P}_{\gM}(\xresp)$ & \num{70.20} $\pm$ \num{0.56} & \num{44.58} $\pm$ \num{0.05} \\ 
+    & $P_{\gM}(\xans|\xcot, \xinstr)$ & \num{63.12} $\pm$ \num{0.44} & \num{47.73} $\pm$ \num{0.23} \\ 
+    & $P_{\gM}(\xresp|\xinstr)$ & \num{79.24} $\pm$ \num{1.19} & \num{50.00} $\pm$ \num{0.00} \\ 
+    \midrule
+    \multirow{4}{*}{Token Entropy}
+    & $\widebar{\gH}$ & \num{70.01} $\pm$ \num{0.56} & \num{36.37} $\pm$ \num{0.13} \\ 
+    & $\widebar{\gH}(\xans)$ & \num{78.80} $\pm$ \num{1.09} & \num{48.15} $\pm$ \num{0.08} \\ 
+    & $\gH$ & \num{79.43} $\pm$ \num{1.14} & - \\ 
+    & $\gH(\xans)$ & \num{78.91} $\pm$ \num{1.38} & - \\ 
+    \midrule
+    \multirow{2}{*}{Multi-Round Prompting}
+    & Verbalized Uncertainty & \num{51.88} $\pm$ \num{0.37} & \num{49.52} $\pm$ \num{0.05} \\ 
+    & Self-Consistency & \num{82.39} $\pm$ \num{1.03} & \num{18.26} $\pm$ \num{1.05} \\ 
+    \midrule
+    \multirow{5}{*}{\ours}
+    & $\widebar{P}_{\gM, \text{attn}}$ & \num{64.42} $\pm$ \num{1.14} & \num{45.07} $\pm$ \num{0.05} \\ 
+    & $\widebar{P}_{\gM, \text{sim}}$ & \num{62.81} $\pm$ \num{1.32} & \num{48.29} $\pm$ \num{0.03} \\ 
+    & $\widetilde{P}_{\gM, \text{attn}}$ & \num{66.65} $\pm$ \num{0.85} & \num{38.03} $\pm$ \num{0.33} \\ 
+    & $\widetilde{P}_{\gM, \text{sim}}$ & \num{63.47} $\pm$ \num{1.41} & \num{31.99} $\pm$ \num{0.41} \\ 
+    & $\widetilde{P}_{\gM}$ & \num{65.97} $\pm$ \num{0.72} & \num{38.60} $\pm$ \num{0.22} \\ 
+    \bottomrule
+    \end{tabular}
+\end{table}

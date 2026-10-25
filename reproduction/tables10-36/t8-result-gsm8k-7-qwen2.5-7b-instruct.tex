@@ -1,0 +1,33 @@
+\begin{table}[ht]
+    \centering
+    \caption{Qwen2.5-7B-Instruct results on the GSM8k dataset.}
+    \label{tabapp:result-details-gsm8k-qwen2.5-7b-instruct}
+    \begin{tabular}{llcc}
+    \toprule
+    & & AUROC & ECE \\ 
+    \midrule
+    \multirow{4}{*}{Token Probability}
+    & $\widebar{P}_{\gM}(\xans)$ & \num{50.97} $\pm$ \num{1.01} & \num{45.65} $\pm$ \num{0.22} \\ 
+    & $\widebar{P}_{\gM}(\xresp)$ & \num{57.58} $\pm$ \num{1.22} & \num{40.64} $\pm$ \num{0.06} \\ 
+    & $P_{\gM}(\xans|\xcot, \xinstr)$ & \num{50.51} $\pm$ \num{1.04} & \num{46.31} $\pm$ \num{0.78} \\ 
+    & $P_{\gM}(\xresp|\xinstr)$ & \num{62.89} $\pm$ \num{0.89} & \num{49.99} $\pm$ \num{0.01} \\ 
+    \midrule
+    \multirow{4}{*}{Token Entropy}
+    & $\widebar{\gH}$ & \num{57.80} $\pm$ \num{0.95} & \num{30.72} $\pm$ \num{0.09} \\ 
+    & $\widebar{\gH}(\xans)$ & \num{50.89} $\pm$ \num{1.42} & \num{44.19} $\pm$ \num{0.19} \\ 
+    & $\gH$ & \num{64.65} $\pm$ \num{0.76} & - \\ 
+    & $\gH(\xans)$ & \num{49.06} $\pm$ \num{1.52} & - \\ 
+    \midrule
+    \multirow{2}{*}{Multi-Round Prompting}
+    & Verbalized Uncertainty & \num{54.77} $\pm$ \num{0.24} & \num{48.87} $\pm$ \num{0.04} \\ 
+    & Self-Consistency & \num{58.89} $\pm$ \num{0.69} & \num{39.62} $\pm$ \num{0.19} \\ 
+    \midrule
+    \multirow{5}{*}{\ours}
+    & $\widebar{P}_{\gM, \text{attn}}$ & \num{52.93} $\pm$ \num{1.45} & \num{40.43} $\pm$ \num{0.11} \\ 
+    & $\widebar{P}_{\gM, \text{sim}}$ & \num{53.42} $\pm$ \num{1.35} & \num{40.05} $\pm$ \num{0.13} \\ 
+    & $\widetilde{P}_{\gM, \text{attn}}$ & \num{54.74} $\pm$ \num{1.45} & \num{32.47} $\pm$ \num{1.17} \\ 
+    & $\widetilde{P}_{\gM, \text{sim}}$ & \num{53.74} $\pm$ \num{1.32} & \num{31.32} $\pm$ \num{1.20} \\ 
+    & $\widetilde{P}_{\gM}$ & \num{45.96} $\pm$ \num{1.00} & \num{41.97} $\pm$ \num{0.34} \\ 
+    \bottomrule
+    \end{tabular}
+\end{table}

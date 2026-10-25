@@ -1,0 +1,33 @@
+\begin{table}[ht]
+    \centering
+    \caption{gemma-2-2b-it results on the MATH dataset.}
+    \label{tabapp:result-details-math-gemma-2-2b-it}
+    \begin{tabular}{llcc}
+    \toprule
+    & & AUROC & ECE \\ 
+    \midrule
+    \multirow{4}{*}{Token Probability}
+    & $\widebar{P}_{\gM}(\xans)$ & \num{70.38} $\pm$ \num{0.70} & \num{45.73} $\pm$ \num{0.15} \\ 
+    & $\widebar{P}_{\gM}(\xresp)$ & \num{69.99} $\pm$ \num{1.47} & \num{37.70} $\pm$ \num{0.10} \\ 
+    & $P_{\gM}(\xans|\xcot, \xinstr)$ & \num{69.91} $\pm$ \num{0.59} & \num{34.12} $\pm$ \num{0.46} \\ 
+    & $P_{\gM}(\xresp|\xinstr)$ & \num{77.86} $\pm$ \num{1.56} & \num{50.00} $\pm$ \num{0.00} \\ 
+    \midrule
+    \multirow{4}{*}{Token Entropy}
+    & $\widebar{\gH}$ & \num{70.66} $\pm$ \num{1.53} & \num{22.06} $\pm$ \num{0.22} \\ 
+    & $\widebar{\gH}(\xans)$ & \num{72.07} $\pm$ \num{0.79} & \num{40.83} $\pm$ \num{0.26} \\ 
+    & $\gH$ & \num{76.88} $\pm$ \num{1.60} & - \\ 
+    & $\gH(\xans)$ & \num{71.41} $\pm$ \num{0.74} & - \\ 
+    \midrule
+    \multirow{2}{*}{Multi-Round Prompting}
+    & Verbalized Uncertainty & \num{56.88} $\pm$ \num{1.00} & \num{41.12} $\pm$ \num{0.36} \\ 
+    & Self-Consistency & \num{80.63} $\pm$ \num{0.67} & \num{17.38} $\pm$ \num{0.24} \\ 
+    \midrule
+    \multirow{5}{*}{\ours}
+    & $\widebar{P}_{\gM, \text{attn}}$ & \num{72.49} $\pm$ \num{0.94} & \num{39.63} $\pm$ \num{0.09} \\ 
+    & $\widebar{P}_{\gM, \text{sim}}$ & \num{69.30} $\pm$ \num{0.76} & \num{43.06} $\pm$ \num{0.09} \\ 
+    & $\widetilde{P}_{\gM, \text{attn}}$ & \num{72.77} $\pm$ \num{1.12} & \num{43.75} $\pm$ \num{0.11} \\ 
+    & $\widetilde{P}_{\gM, \text{sim}}$ & \num{70.89} $\pm$ \num{0.89} & \num{16.45} $\pm$ \num{0.75} \\ 
+    & $\widetilde{P}_{\gM}$ & \num{72.24} $\pm$ \num{0.91} & \num{15.10} $\pm$ \num{0.97} \\ 
+    \bottomrule
+    \end{tabular}
+\end{table}

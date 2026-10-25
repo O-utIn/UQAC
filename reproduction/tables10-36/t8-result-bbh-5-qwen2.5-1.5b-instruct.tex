@@ -1,0 +1,33 @@
+\begin{table}[ht]
+    \centering
+    \caption{Qwen2.5-1.5B-Instruct results on the BBH dataset.}
+    \label{tabapp:result-details-bbh-qwen2.5-1.5b-instruct}
+    \begin{tabular}{llcc}
+    \toprule
+    & & AUROC & ECE \\ 
+    \midrule
+    \multirow{4}{*}{Token Probability}
+    & $\widebar{P}_{\gM}(\xans)$ & \num{68.24} $\pm$ \num{0.47} & \num{45.15} $\pm$ \num{0.32} \\ 
+    & $\widebar{P}_{\gM}(\xresp)$ & \num{51.98} $\pm$ \num{1.46} & \num{42.18} $\pm$ \num{0.12} \\ 
+    & $P_{\gM}(\xans|\xcot, \xinstr)$ & \num{70.02} $\pm$ \num{0.59} & \num{38.77} $\pm$ \num{0.56} \\ 
+    & $P_{\gM}(\xresp|\xinstr)$ & \num{57.36} $\pm$ \num{1.49} & \num{48.46} $\pm$ \num{0.15} \\ 
+    \midrule
+    \multirow{4}{*}{Token Entropy}
+    & $\widebar{\gH}$ & \num{52.19} $\pm$ \num{1.45} & \num{32.25} $\pm$ \num{0.69} \\ 
+    & $\widebar{\gH}(\xans)$ & \num{67.91} $\pm$ \num{0.64} & \num{39.32} $\pm$ \num{0.26} \\ 
+    & $\gH$ & \num{58.22} $\pm$ \num{1.45} & - \\ 
+    & $\gH(\xans)$ & \num{70.59} $\pm$ \num{0.57} & - \\ 
+    \midrule
+    \multirow{2}{*}{Multi-Round Prompting}
+    & Verbalized Uncertainty & \num{50.27} $\pm$ \num{1.62} & \num{38.69} $\pm$ \num{0.69} \\ 
+    & Self-Consistency & \num{79.91} $\pm$ \num{0.34} & \num{14.02} $\pm$ \num{0.38} \\ 
+    \midrule
+    \multirow{5}{*}{\ours}
+    & $\widebar{P}_{\gM, \text{attn}}$ & \num{58.10} $\pm$ \num{1.67} & \num{42.21} $\pm$ \num{0.15} \\ 
+    & $\widebar{P}_{\gM, \text{sim}}$ & \num{56.54} $\pm$ \num{1.71} & \num{42.91} $\pm$ \num{0.19} \\ 
+    & $\widetilde{P}_{\gM, \text{attn}}$ & \num{59.78} $\pm$ \num{1.64} & \num{26.29} $\pm$ \num{1.77} \\ 
+    & $\widetilde{P}_{\gM, \text{sim}}$ & \num{58.59} $\pm$ \num{1.79} & \num{24.43} $\pm$ \num{1.92} \\ 
+    & $\widetilde{P}_{\gM}$ & \num{60.60} $\pm$ \num{1.08} & \num{23.26} $\pm$ \num{1.22} \\ 
+    \bottomrule
+    \end{tabular}
+\end{table}

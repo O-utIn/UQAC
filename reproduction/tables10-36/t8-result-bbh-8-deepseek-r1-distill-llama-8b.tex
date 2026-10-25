@@ -1,0 +1,33 @@
+\begin{table}[ht]
+    \centering
+    \caption{DeepSeek-R1-Distill-Llama-8B results on the BBH dataset.}
+    \label{tabapp:result-details-bbh-deepseek-r1-distill-llama-8b}
+    \begin{tabular}{llcc}
+    \toprule
+    & & AUROC & ECE \\ 
+    \midrule
+    \multirow{4}{*}{Token Probability}
+    & $\widebar{P}_{\gM}(\xans)$ & \num{62.56} $\pm$ \num{1.25} & \num{47.90} $\pm$ \num{0.15} \\ 
+    & $\widebar{P}_{\gM}(\xresp)$ & \num{54.36} $\pm$ \num{1.38} & \num{34.92} $\pm$ \num{0.10} \\ 
+    & $P_{\gM}(\xans|\xcot, \xinstr)$ & \num{63.54} $\pm$ \num{1.26} & \num{44.80} $\pm$ \num{0.20} \\ 
+    & $P_{\gM}(\xresp|\xinstr)$ & \num{43.78} $\pm$ \num{1.36} & \num{50.00} $\pm$ \num{0.00} \\ 
+    \midrule
+    \multirow{4}{*}{Token Entropy}
+    & $\widebar{\gH}$ & \num{54.18} $\pm$ \num{1.29} & \num{16.59} $\pm$ \num{0.70} \\ 
+    & $\widebar{\gH}(\xans)$ & \num{62.37} $\pm$ \num{1.40} & \num{44.86} $\pm$ \num{0.26} \\ 
+    & $\gH$ & \num{44.75} $\pm$ \num{1.19} & - \\ 
+    & $\gH(\xans)$ & \num{63.71} $\pm$ \num{1.38} & - \\ 
+    \midrule
+    \multirow{2}{*}{Multi-Round Prompting}
+    & Verbalized Uncertainty & \num{64.57} $\pm$ \num{0.73} & \num{35.26} $\pm$ \num{0.17} \\ 
+    & Self-Consistency & \num{80.94} $\pm$ \num{1.01} & \num{18.27} $\pm$ \num{0.32} \\ 
+    \midrule
+    \multirow{5}{*}{\ours}
+    & $\widebar{P}_{\gM, \text{attn}}$ & \num{51.14} $\pm$ \num{0.75} & \num{39.39} $\pm$ \num{0.22} \\ 
+    & $\widebar{P}_{\gM, \text{sim}}$ & \num{48.11} $\pm$ \num{0.91} & \num{42.27} $\pm$ \num{0.15} \\ 
+    & $\widetilde{P}_{\gM, \text{attn}}$ & \num{52.49} $\pm$ \num{0.81} & \num{43.10} $\pm$ \num{0.53} \\ 
+    & $\widetilde{P}_{\gM, \text{sim}}$ & \num{50.14} $\pm$ \num{1.09} & \num{33.45} $\pm$ \num{1.00} \\ 
+    & $\widetilde{P}_{\gM}$ & \num{50.52} $\pm$ \num{0.88} & \num{26.94} $\pm$ \num{1.23} \\ 
+    \bottomrule
+    \end{tabular}
+\end{table}
