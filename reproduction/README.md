@@ -13,13 +13,20 @@ This directory records the complete reproduction based on public UQAC commit
   DeepSeek-R1-Distill-Llama-8B
 - Metrics: AUROC and 20-bin ECE
 - Self-Consistency: temperature `0.5`, seeds 0–4, matching the paper
-- Sequence limits: MATH 1,024; BBH 1,536; DeepSeek receives 512 additional
-  generation tokens
+- Generation limits: GSM8K/MATH 1,024 and BBH 1,536. DeepSeek receives 512
+  additional generation tokens on MATH/BBH; the completed GSM8K DeepSeek run
+  retains 1,024 generated tokens with a 2,048-token model context.
 
 All 27 dataset/model combinations completed. The repository includes 81 metric
 files: `metrics.csv`, `metrics-vu.csv`, and Self-Consistency `metrics.csv` for
 each combination. The corresponding 27 paper-format LaTeX tables are in
 `tables10-36/`.
+
+The root [`README.md`](../README.md) contains a paper-vs-reproduction
+configuration table. In particular, it records the A100-to-RTX-4090 hardware
+change, CPU offload/chunking adaptations, software versions, and the GSM8K
+DeepSeek sequence-limit deviation; these should be considered when interpreting
+metric differences.
 
 ## Run
 
